@@ -1,7 +1,13 @@
-import Model from "./Model";
+import Buildings from "./Buildings";
+import Ground from "./Ground";
 
 const Scene = () => {
-  return <Model />;
+  return (
+    <>
+      <Buildings />
+      <Ground />
+    </>
+  );
 };
 
 export default Scene;

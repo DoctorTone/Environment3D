@@ -1,9 +1,13 @@
 const Lights = () => {
   return (
     <>
-      <directionalLight intensity={2} position={[10, 10, 5]} />
-      <directionalLight intensity={1} position={[-10, 10, 5]} />
-      <ambientLight intensity={0.5} />
+      <directionalLight
+        position={[100, 200, 100]}
+        intensity={0.8}
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+      />
+      <ambientLight intensity={0.4} />
     </>
   );
 };

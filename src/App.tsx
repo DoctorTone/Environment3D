@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import { INTERACTIONS, TARGET_POSITION } from "./state/Config";
 import DaySky from "./components/DaySky";
 import Lights from "./components/Lights";
@@ -10,8 +10,11 @@ import UI from "./UI/UI";
 function App() {
   return (
     <>
-      <Canvas>
-        <ResponsiveCamera />
+      <Canvas
+        camera={{ position: [2000, 1500, 2000], fov: 50 }}
+        gl={{ antialias: true }}
+      >
+        {/* <ResponsiveCamera /> */}
         <Lights />
         <DaySky />
         <Scene />
@@ -24,6 +27,8 @@ function App() {
           maxPolarAngle={Math.PI / 2}
           target={[TARGET_POSITION.X, TARGET_POSITION.Y, TARGET_POSITION.Z]}
         />
+        {/* Environment */}
+        <Environment preset="city" />
       </Canvas>
       <UI />
     </>
