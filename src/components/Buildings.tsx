@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Instances, Instance } from "@react-three/drei";
 import * as THREE from "three";
-import buildingData from "../../public/london_heat_data.json";
+import buildingData from "../data/london_heat_data.json";
 
 export default function Buildings() {
   const { buildings, metadata } = buildingData;
@@ -11,6 +11,8 @@ export default function Buildings() {
     const [minTemp, maxTemp] = metadata.tempRange;
 
     return (temp) => {
+      // DEBUG
+      console.log("Temp = ", metadata);
       // Normalize temperature to 0-1
       const t = (temp - minTemp) / (maxTemp - minTemp);
 

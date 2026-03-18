@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Canvas
-        camera={{ position: [2000, 1500, 2000], fov: 50 }}
+        camera={{ position: [0, 150, 2000], fov: 50, near: 10, far: 10000 }}
         gl={{ antialias: true }}
       >
         {/* <ResponsiveCamera /> */}
@@ -26,6 +26,8 @@ function App() {
           minPolarAngle={0}
           maxPolarAngle={Math.PI / 2}
           target={[TARGET_POSITION.X, TARGET_POSITION.Y, TARGET_POSITION.Z]}
+          minDistance={500}
+          maxDistance={10000}
         />
         {/* Environment */}
         <Environment preset="city" />
