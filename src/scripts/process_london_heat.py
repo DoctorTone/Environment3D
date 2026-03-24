@@ -164,18 +164,21 @@ for idx, building in buildings_gdf.iterrows():
         if temp is not None:
             temp_debug.append(temp)
         
-        # Debug first 5
-        if idx < 5:
-            centroid = geom.centroid
-            print(f"Building {idx}: lat={centroid.y:.4f}, lon={centroid.x:.4f}, temp={temp}")
-        
         if temp is None or temp < -50 or temp > 100:
             skipped += 1
             continue
         
+        # Calculate building properties
+        centroid = geom.centroid
         height = get_building_height(building)
         x = centroid.x - origin_x_utm
         z = -(centroid.y - origin_y_utm)
+        
+        # Debug first 20 buildings
+        if idx < 20:
+            print(f"Building {idx}: UTM=({centroid.x:.2f}, {centroid.y:.2f}), scene=({x:.2f}, {z:.2f})")
+        
+        # Get footprint dimensions
         bounds = geom.bounds
         width = bounds[2] - bounds[0]
         depth = bounds[3] - bounds[1]

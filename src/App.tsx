@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Canvas
-        camera={{ position: [0, 150, 2000], fov: 50, near: 10, far: 10000 }}
+        camera={{ position: [0, 1200, 1500], fov: 50, near: 10, far: 10000 }}
         gl={{ antialias: true }}
       >
         {/* <ResponsiveCamera /> */}

@@ -11,8 +11,6 @@ export default function Buildings() {
     const [minTemp, maxTemp] = metadata.tempRange;
 
     return (temp) => {
-      // DEBUG
-      console.log("Temp = ", metadata);
       // Normalize temperature to 0-1
       const t = (temp - minTemp) / (maxTemp - minTemp);
 
