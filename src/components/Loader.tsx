@@ -1,5 +1,6 @@
 import { Html } from "@react-three/drei";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { DotLoader } from "react-spinners";
 
 export default function Loader() {
   return (
@@ -18,7 +19,7 @@ export default function Loader() {
           border: "1px solid rgba(255,255,255,0.1)",
         }}
       >
-        <CircularProgress variant="indeterminate" size={60} color="secondary" />
+        <DotLoader color="#cc7306" />
         <Typography variant="h5" sx={{ color: "white", fontWeight: 600 }}>
           Loading Heat Data
         </Typography>
