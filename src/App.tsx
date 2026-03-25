@@ -1,10 +1,8 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, CameraControls } from "@react-three/drei";
-import { INTERACTIONS, TARGET_POSITION } from "./state/Config";
+import { Environment, CameraControls } from "@react-three/drei";
 import DaySky from "./components/DaySky";
 import Lights from "./components/Lights";
-import ResponsiveCamera from "./components/ResponsiveCamera";
 import Scene from "./components/Scene";
 import UI from "./UI/UI";
 import CameraPresets from "./UI/CameraPresets";
@@ -32,7 +30,6 @@ function App() {
         camera={{ position: [0, 2000, 3000], fov: 50, near: 10, far: 10000 }}
         gl={{ antialias: true }}
       >
-        {/* <ResponsiveCamera /> */}
         <Lights />
         <DaySky />
         <Scene />

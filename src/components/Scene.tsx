@@ -1,16 +1,15 @@
+import { useState } from "react";
 import Buildings from "./Buildings";
 import Ground from "./Ground";
-import { useThree } from "@react-three/fiber";
+import Loader from "./Loader";
 
 const Scene = () => {
-  const { camera, controls } = useThree();
+  const [buildingsLoaded, setBuildingsLoaded] = useState(false);
 
-  // DEBUG
-  console.log("Cam = ", camera.position);
-  console.log("Controls = ", controls);
   return (
     <>
-      <Buildings />
+      {!buildingsLoaded && <Loader />}
+      <Buildings onLoad={() => setBuildingsLoaded(true)} />
       <Ground />
     </>
   );

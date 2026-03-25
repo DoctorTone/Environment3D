@@ -1,14 +1,25 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Instances, Instance } from "@react-three/drei";
 import * as THREE from "three";
-import buildingData from "../data/london_heat_data.json";
 
-export default function Buildings() {
-  const { buildings, metadata } = buildingData;
+export default function Buildings({ onLoad }) {
+  const [buildingData, setBuildingData] = useState(null);
+
+  useEffect(() => {
+    fetch("/london_heat_data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setBuildingData(data);
+        if (onLoad) onLoad();
+      })
+      .catch((err) => console.error("Failed to load building data:", err));
+  }, []);
 
   // Create color scale function
   const tempToColor = useMemo(() => {
-    const [minTemp, maxTemp] = metadata.tempRange;
+    if (!buildingData) return null;
+
+    const [minTemp, maxTemp] = buildingData.metadata.tempRange;
 
     return (temp) => {
       // Normalize to 0-1
@@ -29,7 +40,12 @@ export default function Buildings() {
         return new THREE.Color(0xf2664c);
       }
     };
-  }, [metadata.tempRange]);
+  }, [buildingData]);
+
+  // Don't render anything until data is loaded
+  if (!buildingData) return null;
+
+  const { buildings } = buildingData;
 
   return (
     <group position={[-1500, 0, -1000]}>
