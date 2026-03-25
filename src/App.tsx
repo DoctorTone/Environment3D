@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Canvas
-        camera={{ position: [0, 1200, 1500], fov: 50, near: 10, far: 10000 }}
+        camera={{ position: [2000, 1200, 3000], fov: 50, near: 10, far: 10000 }}
         gl={{ antialias: true }}
       >
         {/* <ResponsiveCamera /> */}
@@ -25,7 +25,7 @@ function App() {
           enableDamping={true}
           minPolarAngle={0}
           maxPolarAngle={Math.PI / 2}
-          target={[TARGET_POSITION.X, TARGET_POSITION.Y, TARGET_POSITION.Z]}
+          target={[2000, 0, 500]}
           minDistance={500}
           maxDistance={10000}
         />
