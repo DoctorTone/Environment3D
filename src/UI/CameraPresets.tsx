@@ -14,8 +14,8 @@ export default function CameraPresets({ onPresetClick }) {
     },
     {
       label: "Cool Zones",
-      position: [-2500, 530, 2500], // Focus on left side blue areas
-      target: [0, -400, 0],
+      position: [2500, 565, -3000], // Focus on left side blue areas
+      target: [900, 265, -900],
     },
   ];
 
