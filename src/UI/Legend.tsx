@@ -15,7 +15,7 @@ export default function Legend({ tempRange }) {
     <Box
       sx={{
         position: "absolute",
-        bottom: isMobile ? 80 : 30, // Move up on mobile to avoid button overlap
+        bottom: 30,
         right: isMobile ? 10 : 30,
         background: "rgba(0, 0, 0, 0.75)",
         backdropFilter: "blur(10px)",

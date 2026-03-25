@@ -8,7 +8,7 @@ import buildingData from "../data/london_heat_data.json";
 const UI = () => {
   return (
     <>
-      <Copyright />
+      {/* <Copyright /> */}
       {/* <Controls /> */}
       {/* <Info /> */}
       <Legend tempRange={buildingData.metadata.tempRange} />

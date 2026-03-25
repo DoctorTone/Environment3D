@@ -6,6 +6,7 @@ import Lights from "./components/Lights";
 import Scene from "./components/Scene";
 import UI from "./UI/UI";
 import CameraPresets from "./UI/CameraPresets";
+import OrientationWarning from "./components/OrientationWarning";
 
 function App() {
   const controlsRef = useRef(null);
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <>
+      <OrientationWarning />
       <Canvas
         camera={{ position: [0, 2000, 3000], fov: 50, near: 10, far: 10000 }}
         gl={{ antialias: true }}
