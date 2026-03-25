@@ -32,18 +32,20 @@ export default function Buildings() {
   }, [metadata.tempRange]);
 
   return (
-    <Instances limit={buildings.length}>
-      <boxGeometry />
-      <meshStandardMaterial />
+    <group position={[-1500, 0, -1000]}>
+      <Instances limit={buildings.length}>
+        <boxGeometry />
+        <meshStandardMaterial />
 
-      {buildings.map((building, i) => (
-        <Instance
-          key={i}
-          position={[building.x, building.height / 2, building.z]}
-          scale={[building.width, building.height, building.depth]}
-          color={tempToColor(building.temp)}
-        />
-      ))}
-    </Instances>
+        {buildings.map((building, i) => (
+          <Instance
+            key={i}
+            position={[building.x, building.height / 2, building.z]}
+            scale={[building.width, building.height, building.depth]}
+            color={tempToColor(building.temp)}
+          />
+        ))}
+      </Instances>
+    </group>
   );
 }

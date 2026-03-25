@@ -2,7 +2,7 @@ export default function Ground() {
   return (
     <mesh
       rotation={[-Math.PI / 2, 0, 0]}
-      position={[1900, 0, 750]}
+      position={[400, 0, -200]}
       receiveShadow
     >
       <planeGeometry args={[7500, 5000]} />
