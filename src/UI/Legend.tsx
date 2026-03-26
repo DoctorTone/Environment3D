@@ -21,8 +21,8 @@ export default function Legend({ tempRange }) {
         backdropFilter: "blur(10px)",
         padding: isMobile ? 1.5 : 2,
         borderRadius: 2,
-        minWidth: isMobile ? 100 : 200,
-        maxWidth: isMobile ? "40vw" : "none",
+        minWidth: 100,
+        maxWidth: isMobile ? "40vw" : "7.5vw",
       }}
     >
       <Typography
