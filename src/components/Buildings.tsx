@@ -26,7 +26,7 @@ const Buildings = ({ onLoad }: BuildingsProps) => {
   const [buildingData, setBuildingData] = useState<BuildingData | null>(null);
 
   useEffect(() => {
-    fetch("/london_heat_data.json")
+    fetch("./london_heat_data.json")
       .then((res) => res.json())
       .then((data) => {
         setBuildingData(data);
