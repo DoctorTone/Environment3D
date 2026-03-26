@@ -15,14 +15,14 @@ export default function Legend({ tempRange }) {
     <Box
       sx={{
         position: "absolute",
-        bottom: 30,
-        right: isMobile ? 10 : 30,
+        bottom: 10,
+        right: 10,
         background: "rgba(0, 0, 0, 0.75)",
         backdropFilter: "blur(10px)",
         padding: isMobile ? 1.5 : 2,
         borderRadius: 2,
         minWidth: 100,
-        maxWidth: isMobile ? "40vw" : "7.5vw",
+        maxWidth: isMobile ? "40vw" : "15vw",
       }}
     >
       <Typography

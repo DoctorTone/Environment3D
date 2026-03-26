@@ -12,10 +12,10 @@ export default function InfoPanel({ metadata }) {
         left: isMobile ? 10 : 20,
         background: "rgba(0, 0, 0, 0.75)",
         backdropFilter: "blur(10px)",
-        padding: 2.5,
+        padding: 2,
         borderRadius: 2,
         minWidth: 200,
-        maxWidth: isMobile ? "45vw" : "15vw", // Cap width on mobile
+        maxWidth: isMobile ? "45vw" : "none", // Cap width on mobile
       }}
     >
       <Typography
@@ -28,7 +28,7 @@ export default function InfoPanel({ metadata }) {
       {!isMobile && ( // Hide description on mobile to save space
         <Typography
           variant="body2"
-          sx={{ color: "rgba(255,255,255,0.8)", mb: 2 }}
+          sx={{ color: "rgba(255,255,255,0.8)", mb: 1 }}
         >
           3D visualisation of surface temperature across central London
         </Typography>

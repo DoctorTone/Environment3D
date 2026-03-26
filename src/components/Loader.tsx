@@ -15,7 +15,7 @@ export default function Loader() {
           backdropFilter: "blur(10px)",
           padding: 5,
           borderRadius: 3,
-          minWidth: 320,
+          minWidth: 225,
           border: "1px solid rgba(255,255,255,0.1)",
         }}
       >
