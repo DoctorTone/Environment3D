@@ -1,16 +1,21 @@
 import { Box, Typography } from "@mui/material";
-import { ScreenRotation } from "@mui/icons-material"; // or use a custom icon
-import { useMediaQuery, useTheme } from "@mui/material";
 import { useState, useEffect } from "react";
 
 export default function OrientationWarning() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [isLandscape, setIsLandscape] = useState(false);
+  const [shouldShowWarning, setShouldShowWarning] = useState(false);
 
   useEffect(() => {
     const checkOrientation = () => {
-      setIsLandscape(window.innerWidth > window.innerHeight);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const isLandscape = width > height;
+
+      // Show warning if:
+      // 1. Device is in landscape AND
+      // 2. Height is small (< 500px) indicating mobile device
+      const isMobileLandscape = isLandscape && height < 500;
+
+      setShouldShowWarning(isMobileLandscape);
     };
 
     checkOrientation();
@@ -23,8 +28,7 @@ export default function OrientationWarning() {
     };
   }, []);
 
-  // Only show on mobile in landscape
-  if (!isMobile || !isLandscape) return null;
+  if (!shouldShowWarning) return null;
 
   return (
     <Box
