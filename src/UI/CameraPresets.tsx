@@ -1,6 +1,10 @@
 import { Stack, Button, useMediaQuery, useTheme } from "@mui/material";
 
-export default function CameraPresets({ onPresetClick }) {
+interface CameraProps {
+  onPresetClick: (position: number[], target: number[]) => void;
+}
+
+const CameraPresets = ({ onPresetClick }: CameraProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -61,4 +65,6 @@ export default function CameraPresets({ onPresetClick }) {
       ))}
     </Stack>
   );
-}
+};
+
+export default CameraPresets;

@@ -1,6 +1,13 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 
-export default function InfoPanel({ metadata }) {
+interface PanelProps {
+  metadata: {
+    tempRange: [number, number];
+    count: number;
+  };
+}
+
+const InfoPanel = ({ metadata }: PanelProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // < 600px
 
@@ -73,4 +80,6 @@ export default function InfoPanel({ metadata }) {
       </Box>
     </Box>
   );
-}
+};
+
+export default InfoPanel;

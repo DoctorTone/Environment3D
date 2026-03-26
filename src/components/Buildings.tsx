@@ -2,8 +2,28 @@ import { useMemo, useState, useEffect } from "react";
 import { Instances, Instance } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function Buildings({ onLoad }) {
-  const [buildingData, setBuildingData] = useState(null);
+interface Building {
+  x: number;
+  z: number;
+  width: number;
+  height: number;
+  depth: number;
+  temp: number;
+}
+
+interface BuildingData {
+  metadata: {
+    tempRange: [number, number];
+  };
+  buildings: Building[];
+}
+
+interface BuildingsProps {
+  onLoad?: () => void;
+}
+
+const Buildings = ({ onLoad }: BuildingsProps) => {
+  const [buildingData, setBuildingData] = useState<BuildingData | null>(null);
 
   useEffect(() => {
     fetch("/london_heat_data.json")
@@ -21,7 +41,7 @@ export default function Buildings({ onLoad }) {
 
     const [minTemp, maxTemp] = buildingData.metadata.tempRange;
 
-    return (temp) => {
+    return (temp: number) => {
       // Normalize to 0-1
       const t = (temp - minTemp) / (maxTemp - minTemp);
 
@@ -58,10 +78,12 @@ export default function Buildings({ onLoad }) {
             key={i}
             position={[building.x, building.height / 2, building.z]}
             scale={[building.width, building.height, building.depth]}
-            color={tempToColor(building.temp)}
+            color={tempToColor?.(building.temp)}
           />
         ))}
       </Instances>
     </group>
   );
-}
+};
+
+export default Buildings;
