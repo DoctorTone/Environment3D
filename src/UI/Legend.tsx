@@ -1,6 +1,9 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 
-export default function Legend({ tempRange }) {
+interface LegendProps {
+  tempRange: number[];
+}
+const Legend = ({ tempRange }: LegendProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -64,4 +67,6 @@ export default function Legend({ tempRange }) {
       )}
     </Box>
   );
-}
+};
+
+export default Legend;
