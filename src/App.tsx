@@ -9,9 +9,9 @@ import CameraPresets from "./UI/CameraPresets";
 import OrientationWarning from "./components/OrientationWarning";
 
 function App() {
-  const controlsRef = useRef(null);
+  const controlsRef = useRef<CameraControls>(null);
 
-  const handlePresetClick = (position, target) => {
+  const handlePresetClick = (position: number[], target: number[]) => {
     if (controlsRef.current) {
       controlsRef.current.setLookAt(
         position[0],
