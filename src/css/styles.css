@@ -27,3 +27,9 @@ body {
   left: 1%;
   bottom: 2%;
 }
+.links a {
+  color: orange;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
