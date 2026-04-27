@@ -7,6 +7,8 @@ interface CameraProps {
 const CameraPresets = ({ onPresetClick }: CameraProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isPortrait = useMediaQuery("(orientation: portrait)");
+  const isMobilePortrait = isMobile && isPortrait;
 
   const presets = [
     {
@@ -32,7 +34,7 @@ const CameraPresets = ({ onPresetClick }: CameraProps) => {
       spacing={isMobile ? 1 : 1.5}
       sx={{
         position: "absolute",
-        bottom: 30,
+        bottom: isMobilePortrait ? 70 : 50,
         left: isMobile ? 10 : "50%",
         transform: isMobile ? "none" : "translateX(-50%)",
         zIndex: 10,
