@@ -6,7 +6,7 @@ import { useMediaQuery, useTheme } from "@mui/material";
 const Copyright = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const label = "DRT Software Ltd";
+  const label = "DRT Software Ltd. 2026";
 
   return (
     <div id="copyright" className="panel">
